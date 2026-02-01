@@ -1,10 +1,5 @@
-
 import React from 'react';
-import { 
-  BrainCircuit, Zap, ChevronRight, Check, Mail, Layers, 
-  Cpu, Database, LineChart, Target, Activity, 
-  BookOpen, Fingerprint, Video, History, Search, Code, Workflow, ShieldCheck, ArrowDown
-} from 'lucide-react';
+import { BrainCircuit, Wrench, Clock, Mail, AlertCircle, Shield, Server } from 'lucide-react';
 
 interface LandingPageProps {
   onStart: () => void;
@@ -12,183 +7,141 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-ict-accent selection:text-black font-sans">
-      {/* Background Glows */}
+    <div className="min-h-screen bg-black text-white selection:bg-amber-500 selection:text-black font-sans overflow-hidden">
+      {/* Background Effects */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-ict-accent/10 rounded-full blur-[140px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[140px]"></div>
+        <div className="absolute top-1/4 left-1/4 w-[40%] h-[40%] bg-amber-500/5 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[40%] h-[40%] bg-gray-800/10 rounded-full blur-[120px]"></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `linear-gradient(to right, #333 1px, transparent 1px),
+                           linear-gradient(to bottom, #333 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
-      {/* Header Navigation */}
-      <nav className="p-6 flex justify-between items-center border-b border-white/10 sticky top-0 bg-black/95 backdrop-blur-xl z-[100]">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-ict-accent/10 rounded-xl flex items-center justify-center border border-ict-accent/30">
-            <BrainCircuit className="w-6 h-6 text-ict-accent" />
+      {/* Main Content */}
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          {/* Logo/Brand */}
+          <div className="flex flex-col items-center mb-16">
+            <div className="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/30 mb-6 animate-pulse">
+              <BrainCircuit className="w-10 h-10 text-amber-500" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-3 text-white">
+              ALGOBROS <span className="text-amber-500">AI</span>
+            </h1>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30">
+              <Shield className="w-3 h-3 text-amber-500" />
+              <span className="text-amber-500 text-xs font-black uppercase tracking-widest">
+                SYSTEM UPDATE IN PROGRESS
+              </span>
+            </div>
           </div>
-          <span className="text-2xl font-black tracking-tighter uppercase italic text-white">
-            ALGOBROS <span className="text-ict-accent">AI</span>
-          </span>
-        </div>
-        <button 
-          onClick={onStart} 
-          className="px-8 py-3 bg-ict-accent text-black font-black rounded-full hover:scale-105 transition-all shadow-[0_0_25px_rgba(0,255,157,0.5)] text-xs uppercase tracking-widest"
-        >
-          GET STARTED
-        </button>
-      </nav>
 
-      {/* HERO SECTION */}
-      <section className="relative pt-24 pb-20 px-6 text-center z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ict-accent/10 border border-ict-accent/30 text-ict-accent text-[10px] font-black mb-8 tracking-[0.4em] uppercase">
-            <Activity className="w-3 h-3" /> QUANTUM ANALYSIS ENGINE v3.1 ONLINE
+          {/* Maintenance Icon */}
+          <div className="relative mb-12">
+            <div className="w-32 h-32 mx-auto bg-gradient-to-br from-amber-500/20 to-transparent rounded-full flex items-center justify-center border border-amber-500/30 animate-spin-slow">
+              <div className="w-24 h-24 bg-gradient-to-br from-amber-500/10 to-transparent rounded-full flex items-center justify-center border border-amber-500/20">
+                <Wrench className="w-12 h-12 text-amber-500" />
+              </div>
+            </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <AlertCircle className="w-16 h-16 text-amber-500 animate-pulse" />
+            </div>
           </div>
-          <h1 className="text-5xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] uppercase italic text-white">
-            RECURSIVE <br/>
-            <span className="text-ict-accent text-glow">INTELLIGENCE</span> <br/>
-            ARCHITECTURE
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto font-medium leading-relaxed">
-            Algobros AI synthesizes your strategy and history into a private intelligence that executes institutional order flow across 8 timeframes, learning recursively to eliminate trading blind spots.
+
+          {/* Headline */}
+          <h2 className="text-5xl md:text-7xl font-black uppercase mb-8 leading-tight text-white">
+            <span className="text-amber-500">UNDER</span> <br />
+            MAINTENANCE
+          </h2>
+
+          {/* Description */}
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-xl mx-auto font-medium">
+            We're currently upgrading our infrastructure to deliver an even better experience. 
+            Please check back soon.
           </p>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <button 
-              onClick={onStart} 
-              className="px-14 py-7 bg-white text-black text-2xl font-black rounded-3xl hover:bg-ict-accent transition-all flex items-center justify-center gap-4 shadow-2xl active:scale-95 uppercase tracking-tighter italic"
+
+          {/* Status Information */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-amber-500/30 transition-colors">
+              <div className="w-12 h-12 mx-auto mb-4 bg-amber-500/10 rounded-xl flex items-center justify-center">
+                <Clock className="w-6 h-6 text-amber-500" />
+              </div>
+              <h3 className="text-white font-bold mb-2">Estimated Time</h3>
+              <p className="text-gray-400 text-sm">24-48 Hours</p>
+            </div>
+
+            <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-amber-500/30 transition-colors">
+              <div className="w-12 h-12 mx-auto mb-4 bg-amber-500/10 rounded-xl flex items-center justify-center">
+                <Server className="w-6 h-6 text-amber-500" />
+              </div>
+              <h3 className="text-white font-bold mb-2">System Status</h3>
+              <p className="text-gray-400 text-sm">Infrastructure Update</p>
+            </div>
+
+            <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-amber-500/30 transition-colors">
+              <div className="w-12 h-12 mx-auto mb-4 bg-amber-500/10 rounded-xl flex items-center justify-center">
+                <Mail className="w-6 h-6 text-amber-500" />
+              </div>
+              <h3 className="text-white font-bold mb-2">Contact</h3>
+              <p className="text-gray-400 text-sm">AlgobrosIA@gmail.com</p>
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="mb-12">
+            <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">
+              <span>Update Progress</span>
+              <span>65%</span>
+            </div>
+            <div className="h-2 bg-gray-900 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-amber-500 to-amber-600 rounded-full animate-pulse"
+                style={{ width: '65%' }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="pt-8 border-t border-white/10">
+            <p className="text-gray-500 text-sm mb-4">
+              For urgent inquiries, please contact us at:
+            </p>
+            <a 
+              href="mailto:AlgobrosIA@gmail.com" 
+              className="inline-flex items-center gap-3 text-amber-500 hover:text-amber-400 font-bold text-lg transition-colors"
             >
-              GET STARTED <ChevronRight className="w-8 h-8" />
-            </button>
-            <div className="hidden md:flex flex-col items-start text-left border-l border-white/10 pl-6">
-              <span className="text-[10px] font-black uppercase tracking-widest text-ict-accent">Infrastructure Status</span>
-              <span className="text-xs font-bold text-gray-400">Gemini 3 Pro Core / 8-TF Sync / Cloud Memory</span>
-            </div>
+              <Mail className="w-5 h-5" />
+              AlgobrosIA@gmail.com
+            </a>
           </div>
-          
-          <div className="mt-16 flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-[9px] font-black uppercase tracking-[0.5em] text-gray-600">Scroll to Explore Infrastructure</span>
-            <ArrowDown className="w-4 h-4 text-gray-700" />
-          </div>
-        </div>
-      </section>
 
-      {/* CORE CAPABILITY */}
-      <section className="py-32 px-6 max-w-7xl mx-auto z-10 relative border-t border-white/5">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <div className="w-12 h-12 bg-ict-accent/10 rounded-2xl flex items-center justify-center border border-ict-accent/30 mb-6">
-              <BrainCircuit className="w-6 h-6 text-ict-accent" />
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-8 leading-none text-white">
-              HOW THE AI <br/><span className="text-ict-accent">LEARNS</span> FROM YOU
-            </h2>
-            <div className="space-y-6 text-gray-300 font-medium text-lg leading-relaxed">
-              <p>
-                Unlike generic signal bots, Algobros AI is an empty vessel designed to be filled with <span className="text-white font-bold italic">your specific edge</span>. Through the Knowledge Base, you upload the mentorship videos you study or the PDFs you've written. 
-              </p>
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-ict-accent/50 transition-colors">
-                  <Video className="text-ict-accent w-6 h-6 mb-3" />
-                  <p className="text-white font-black uppercase text-[10px] tracking-widest mb-1">Video Logic</p>
-                  <p className="text-[10px] text-gray-500 leading-tight">Extracts technical signatures directly from video frames.</p>
-                </div>
-                <div className="p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-blue-400/50 transition-colors">
-                  <BookOpen className="text-blue-400 w-6 h-6 mb-3" />
-                  <p className="text-white font-black uppercase text-[10px] tracking-widest mb-1">Doc Integration</p>
-                  <p className="text-[10px] text-gray-500 leading-tight">Parses PDFs and Journal entries to build a rule-based engine.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-[#080808] p-1 md:p-10 rounded-[4rem] border border-ict-accent/20 shadow-[0_0_80px_rgba(0,255,157,0.05)] overflow-hidden">
-             <div className="bg-black rounded-[3.5rem] p-8 space-y-8 relative border border-white/5">
-                <div className="flex items-center justify-between">
-                   <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-ict-accent animate-pulse"></div>
-                      <span className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Neural Syncing...</span>
-                   </div>
-                   <Activity className="w-4 h-4 text-ict-accent/30" />
-                </div>
-                <div className="space-y-4">
-                   <div className="h-2 w-full bg-gray-900 rounded-full overflow-hidden">
-                      <div className="h-full bg-ict-accent w-[85%] animate-[pulse_2s_infinite]"></div>
-                   </div>
-                   <div className="h-2 w-[70%] bg-gray-900 rounded-full overflow-hidden">
-                      <div className="h-full bg-ict-accent w-[40%]"></div>
-                   </div>
-                   <div className="h-2 w-[90%] bg-gray-900 rounded-full overflow-hidden">
-                      <div className="h-full bg-ict-accent w-[95%]"></div>
-                   </div>
-                </div>
-             </div>
+          {/* Copyright */}
+          <div className="mt-16 pt-8 border-t border-white/5">
+            <p className="text-gray-700 text-xs font-black uppercase tracking-widest">
+              &copy; {new Date().getFullYear()} ALGOBROS QUANT SOLUTIONS GROUP
+            </p>
+            <p className="text-gray-800 text-[10px] mt-2 uppercase tracking-wider">
+              All systems undergoing scheduled maintenance
+            </p>
           </div>
         </div>
-      </section>
+      </main>
 
-      {/* PRICING SECTION */}
-      <section id="pricing" className="py-32 px-6 max-w-6xl mx-auto z-10 relative">
-        <div className="text-center mb-24">
-           <h2 className="text-5xl md:text-9xl font-black uppercase italic tracking-tighter leading-none mb-4 text-white">LICENSING <span className="text-ict-accent">TIERS</span></h2>
-           <p className="text-gray-400 font-black uppercase tracking-[0.6em] text-[10px]">Deploy the infrastructure that fits your scale.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* MONTHLY CARD */}
-          <div className="p-12 bg-[#0c0c0c] border-4 border-white/20 rounded-[4rem] flex flex-col items-center text-center hover:border-white/40 hover:bg-[#111] transition-all shadow-2xl group">
-            <h3 className="text-3xl font-black uppercase italic mb-2 text-white group-hover:text-ict-accent transition-colors">Standard Quant</h3>
-            <p className="text-gray-600 text-[10px] font-black tracking-[0.3em] uppercase mb-10">MONTHLY LICENSE ACCESS</p>
-            <div className="text-7xl font-black mb-12 text-white">9.99<span className="text-xl text-gray-600 ml-1">USDT</span></div>
-            <button onClick={onStart} className="w-full py-6 bg-white text-black font-black rounded-2xl hover:bg-ict-accent transition-all uppercase tracking-widest text-[11px] shadow-xl">GET STARTED</button>
-          </div>
-
-          {/* YEARLY CARD */}
-          <div className="p-12 bg-ict-accent/[0.03] border-4 border-ict-accent rounded-[4rem] flex flex-col items-center text-center relative overflow-hidden shadow-[0_0_60px_rgba(0,255,157,0.15)] group">
-            <div className="absolute top-8 right-8 bg-ict-accent text-black text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-2xl animate-pulse">ELITE CHOICE</div>
-            <h3 className="text-3xl font-black uppercase italic mb-2 text-white">Yearly Elite</h3>
-            <p className="text-ict-accent/60 text-[10px] font-black tracking-[0.3em] uppercase mb-10">ANNUAL PROFESSIONAL LICENSE</p>
-            <div className="text-7xl font-black mb-12 text-ict-accent">99.99<span className="text-xl text-gray-500 ml-1">USDT</span></div>
-            <button onClick={onStart} className="w-full py-6 bg-ict-accent text-black font-black rounded-2xl hover:scale-[1.03] transition-all uppercase tracking-widest text-[11px] shadow-[0_0_40px_rgba(0,255,157,0.5)]">GET STARTED</button>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="py-32 px-6 border-t border-white/10 z-10 relative bg-black/80">
-        <div className="max-w-7xl mx-auto">
-           <div className="grid md:grid-cols-3 gap-24 mb-24">
-              <div className="col-span-1">
-                 <div className="flex items-center gap-3 mb-10">
-                    <div className="w-12 h-12 bg-ict-accent/10 rounded-2xl flex items-center justify-center border border-ict-accent/30">
-                      <BrainCircuit className="w-8 h-8 text-ict-accent" />
-                    </div>
-                    <h2 className="text-3xl font-black uppercase italic tracking-tighter text-white">ALGOBROS <span className="text-ict-accent">AI</span></h2>
-                 </div>
-                 <p className="text-gray-400 text-lg leading-relaxed font-medium">
-                    The institutional standard for recursive algorithmic market analysis. Engineering probability through deep neural learning and Smart Money logic.
-                 </p>
-              </div>
-              
-              <div className="col-span-1">
-                 <h4 className="text-xs font-black uppercase tracking-widest text-white mb-10 border-b border-white/5 pb-4">Terminal Access</h4>
-                 <div className="space-y-8">
-                    <a href="mailto:AlgobrosIA@gmail.com" className="text-xl font-black text-ict-accent flex items-center gap-3 hover:underline">
-                       <Mail className="w-6 h-6" /> AlgobrosIA@gmail.com
-                    </a>
-                 </div>
-              </div>
-           </div>
-
-           <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
-              <p className="text-gray-800 text-[10px] font-black uppercase tracking-[0.2em]">
-                &copy; {new Date().getFullYear()} ALGOBROS QUANT SOLUTIONS GROUP.
-              </p>
-           </div>
-        </div>
-      </footer>
+      {/* Animated Background Elements */}
+      <div className="fixed bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent animate-pulse"></div>
 
       <style>{`
-        .text-glow {
-          text-shadow: 0 0 40px rgba(0, 255, 157, 0.5);
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
         }
       `}</style>
     </div>
